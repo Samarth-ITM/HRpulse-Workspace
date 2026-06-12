@@ -1,4 +1,4 @@
-# HRPulse Workspace
+# [HRPulse Workspace](https://hrpulse-seven.vercel.app)
 
 <div align="center">
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
@@ -77,13 +77,13 @@ graph TD
 
 ## Core Features
 
-*   **CSV-Driven Data Pipeline**: Fetches and parses 5 local CSV files asynchronously using `PapaParse` inside a custom hook, managing state atomically via `Promise.all`.
-*   **Collapsible Org Chart Tree**: Recursively renders employee nodes based on `managerId`. If circular references occur, it gracefully renders warnings. If no roots are detected naturally, it falls back to the first employee as root.
-*   **Reporting Chain Tracker**: Instantly builds the path of managers up to the CEO for any employee. Uses a `visited` Set to guarantee instant cycle detection.
-*   **LIFO Salary Rollback**: Tracks salary modifications chronologically, offering a global LIFO (Last-In-First-Out) stack Undo button to revert the latest change safely.
-*   **FIFO Leave Queue**: Enforces First-In-First-Out leave requests processing (only the front-of-queue item can be processed) and records the exact processing date (`processedAt`).
-*   **Round-Robin Task Assignor**: Assigns administrative tasks sequentially to available HR personnel, dynamically looking up employee names to keep data consistent.
-*   **Premium Aesthetics**: Styled with a dark-slate theme featuring responsive layouts, custom scrollable directory containers (no pagination), micro-animations, and status badges.
+- **CSV-Driven Data Pipeline**: Fetches and parses 5 local CSV files asynchronously using `PapaParse` inside a custom hook, managing state atomically via `Promise.all`.
+- **Collapsible Org Chart Tree**: Recursively renders employee nodes based on `managerId`. If circular references occur, it gracefully renders warnings. If no roots are detected naturally, it falls back to the first employee as root.
+- **Reporting Chain Tracker**: Instantly builds the path of managers up to the CEO for any employee. Uses a `visited` Set to guarantee instant cycle detection.
+- **LIFO Salary Rollback**: Tracks salary modifications chronologically, offering a global LIFO (Last-In-First-Out) stack Undo button to revert the latest change safely.
+- **FIFO Leave Queue**: Enforces First-In-First-Out leave requests processing (only the front-of-queue item can be processed) and records the exact processing date (`processedAt`).
+- **Round-Robin Task Assignor**: Assigns administrative tasks sequentially to available HR personnel, dynamically looking up employee names to keep data consistent.
+- **Premium Aesthetics**: Styled with a dark-slate theme featuring responsive layouts, custom scrollable directory containers (no pagination), micro-animations, and status badges.
 
 ---
 
@@ -91,8 +91,8 @@ graph TD
 
 ### Prerequisites
 
-*   **Node.js** (v18 or higher recommended)
-*   **npm** (or yarn)
+- **Node.js** (v18 or higher recommended)
+- **npm** (or yarn)
 
 ### Installation
 
@@ -109,14 +109,17 @@ graph TD
 ### Running Locally
 
 To start the Vite local development server:
+
 ```bash
 npm run dev
 ```
-Open `http://localhost:5173` in your browser.
+
+OR Open [`hrpulse-seven.vercel.app`](https://hrpulse-seven.vercel.app) in your browser.
 
 ### Building for Production
 
 To compile production assets into `/dist`:
+
 ```bash
 npm run build
 ```
