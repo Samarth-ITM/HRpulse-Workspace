@@ -1,0 +1,4 @@
+role,permissions
+HR,"editEmployees,assignTasks,manageLeaves"
+Manager,"approveLeave,viewReportingChain"
+Employee,"viewProfile,requestLeave"

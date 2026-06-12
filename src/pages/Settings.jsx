@@ -1,0 +1,52 @@
+import React from 'react';
+import PermissionsHub from '../components/PermissionsHub';
+import TaskAssignor from '../components/TaskAssignor';
+import SalaryHistory from '../components/SalaryHistory';
+import AvailabilityBoard from '../components/AvailabilityBoard';
+
+export default function Settings({ 
+  employees, 
+  roles, 
+  tasks, 
+  salaryHistory, 
+  onUpdateRoles, 
+  onAddTask, 
+  onCompleteTask, 
+  onUndoSalaryChange,
+  taskNextIndex,
+  setTaskNextIndex
+}) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
+      <div>
+        <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Roles & Tasks Hub</h2>
+        <p className="text-muted">Manage system access levels, log salary modifications, and assign HR duties.</p>
+      </div>
+
+      <TaskAssignor 
+        employees={employees} 
+        tasks={tasks} 
+        onAddTask={onAddTask} 
+        onCompleteTask={onCompleteTask} 
+        taskNextIndex={taskNextIndex}
+        setTaskNextIndex={setTaskNextIndex}
+      />
+
+      <AvailabilityBoard 
+        employees={employees} 
+        tasks={tasks}
+      />
+
+      <PermissionsHub 
+        roles={roles} 
+        onUpdateRoles={onUpdateRoles} 
+      />
+
+      <SalaryHistory 
+        salaryHistory={salaryHistory} 
+        employees={employees} 
+        onUndoChange={onUndoSalaryChange} 
+      />
+    </div>
+  );
+}

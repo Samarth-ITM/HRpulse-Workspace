@@ -1,0 +1,7 @@
+id,employeeId,type,status,submittedAt
+1,3,Vacation,Pending,2025-01-05
+2,1,Sick,Approved,2025-01-06
+3,16,Personal,Pending,2025-01-07
+4,2,Maternity,Pending,2025-01-08
+5,12,Vacation,Approved,2025-01-09
+6,24,Sick,Pending,2025-01-10

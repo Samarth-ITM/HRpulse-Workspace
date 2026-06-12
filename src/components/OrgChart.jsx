@@ -1,0 +1,94 @@
+import React, { useState } from 'react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
+
+function TreeNode({ node, employees, onSelect, visited = new Set() }) {
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  if (visited.has(node.id)) {
+    return (
+      <div className="tree-node-wrapper">
+        <div className="cycle-warning" style={{ color: 'var(--danger)', fontSize: 13, padding: '8px 12px', borderRadius: 6, border: '1px dashed var(--danger)', backgroundColor: 'var(--danger-glow)', fontWeight: 600 }}>
+          Circular Reference Detected (ID: #{node.id})
+        </div>
+      </div>
+    );
+  }
+
+  // Find children of this employee
+  const children = employees.filter(emp => emp.managerId === node.id);
+  const hasChildren = children.length > 0;
+
+  const nextVisited = new Set(visited);
+  nextVisited.add(node.id);
+
+  return (
+    <div className="tree-node-wrapper">
+      <div 
+        className="tree-node-card"
+        onClick={() => onSelect && onSelect(node)}
+      >
+        <div className="tree-node-name">{node.name}</div>
+        <div className="tree-node-role">{node.role}</div>
+        <div className="tree-node-dept">{node.department}</div>
+        
+        {hasChildren && (
+          <button 
+            className="collapse-toggle"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsExpanded(!isExpanded);
+            }}
+          >
+            {isExpanded ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
+          </button>
+        )}
+      </div>
+
+      {hasChildren && isExpanded && (
+        <div className="tree-node-children">
+          {children.map(child => (
+            <TreeNode 
+              key={child.id} 
+              node={child} 
+              employees={employees} 
+              onSelect={onSelect} 
+              visited={nextVisited}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function OrgChart({ employees, onSelectEmployee }) {
+  // Find roots (employees with no manager or managerId not matching any valid employee)
+  const employeeIds = employees.map(e => e.id);
+  const detectedRoots = employees.filter(emp => !emp.managerId || !employeeIds.includes(emp.managerId));
+
+  // Fallback to first employee if no root detected to prevent org chart disappearance
+  const roots = detectedRoots.length > 0
+    ? detectedRoots
+    : employees.length > 0
+      ? [employees[0]]
+      : [];
+
+  return (
+    <div className="tree-container">
+      {roots.length === 0 ? (
+        <p className="text-muted">No organizational roots found.</p>
+      ) : (
+        roots.map(root => (
+          <div key={root.id} className="tree-root">
+            <TreeNode 
+              node={root} 
+              employees={employees} 
+              onSelect={onSelectEmployee} 
+              visited={new Set()}
+            />
+          </div>
+        ))
+      )}
+    </div>
+  );
+}
