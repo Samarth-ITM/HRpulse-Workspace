@@ -4,7 +4,7 @@ This report details the final, production-ready codebase structure, code content
 
 ---
 
-## 📂 File System Structure
+## File System Structure
 
 The final project layout includes static assets, components, state hooks, and page aggregations:
 
@@ -48,11 +48,11 @@ The final project layout includes static assets, components, state hooks, and pa
 
 ---
 
-## 📝 Detailed File Directory & Code Contents
+## Detailed File Directory & Code Contents
 
 ### 1. Data Layer
 
-#### 📄 [public/employees.csv](file:///Users/samarth/Downloads/React-Project/public/employees.csv)
+#### [public/employees.csv](file:///Users/samarth/Downloads/React-Project/public/employees.csv)
 ```csv
 id,name,department,managerId,role,salary,joinDate
 1,John,Engineering,5,Developer,80000,2020-01-15
@@ -87,7 +87,7 @@ id,name,department,managerId,role,salary,joinDate
 30,Gabriel,Operations,28,Logistics Coordinator,58000,2020-10-01
 ```
 
-#### 📄 [public/leaveRequests.csv](file:///Users/samarth/Downloads/React-Project/public/leaveRequests.csv)
+#### [public/leaveRequests.csv](file:///Users/samarth/Downloads/React-Project/public/leaveRequests.csv)
 ```csv
 id,employeeId,type,status,submittedAt
 1,3,Vacation,Pending,2025-01-05
@@ -98,7 +98,7 @@ id,employeeId,type,status,submittedAt
 6,24,Sick,Pending,2025-01-10
 ```
 
-#### 📄 [public/salaryHistory.csv](file:///Users/samarth/Downloads/React-Project/public/salaryHistory.csv)
+#### [public/salaryHistory.csv](file:///Users/samarth/Downloads/React-Project/public/salaryHistory.csv)
 ```csv
 id,employeeId,oldSalary,newSalary,date
 1,3,80000,85000,2025-01-10
@@ -107,7 +107,7 @@ id,employeeId,oldSalary,newSalary,date
 4,21,100000,105000,2025-01-02
 ```
 
-#### 📄 [public/roles.csv](file:///Users/samarth/Downloads/React-Project/public/roles.csv)
+#### [public/roles.csv](file:///Users/samarth/Downloads/React-Project/public/roles.csv)
 ```csv
 role,permissions
 HR,"editEmployees,assignTasks,manageLeaves"
@@ -115,14 +115,14 @@ Manager,"approveLeave,viewReportingChain"
 Employee,"viewProfile,requestLeave"
 ```
 
-#### 📄 [public/tasks.csv](file:///Users/samarth/Downloads/React-Project/public/tasks.csv)
+#### [public/tasks.csv](file:///Users/samarth/Downloads/React-Project/public/tasks.csv)
 ```csv
 id,title,assignedToId,status,date
 1,Quarterly HR Performance Review Audit,2,In Progress,2026-06-12
 2,New Employee Onboarding Paperwork,10,Completed,2026-06-11
 ```
 
-#### 📄 [useCsvData.js](file:///Users/samarth/Downloads/React-Project/src/hooks/useCsvData.js)
+#### [useCsvData.js](file:///Users/samarth/Downloads/React-Project/src/hooks/useCsvData.js)
 ```javascript
 import Papa from 'papaparse';
 import { useEffect, useState } from 'react';
@@ -197,7 +197,7 @@ export function useCsvData() {
 
 ### 2. Central App Controller
 
-#### 📄 [App.jsx](file:///Users/samarth/Downloads/React-Project/src/App.jsx)
+#### [App.jsx](file:///Users/samarth/Downloads/React-Project/src/App.jsx)
 ```javascript
 import React, { useState } from 'react';
 import { useCsvData } from './hooks/useCsvData';
@@ -426,7 +426,7 @@ export default function App() {
 
 ### 3. Modular & Interactive Components
 
-#### 📄 [EmployeeTable.jsx](file:///Users/samarth/Downloads/React-Project/src/components/EmployeeTable.jsx)
+#### [EmployeeTable.jsx](file:///Users/samarth/Downloads/React-Project/src/components/EmployeeTable.jsx)
 ```javascript
 import React, { useState } from 'react';
 import { Calendar, ArrowUpDown } from 'lucide-react';
@@ -578,7 +578,7 @@ export default function EmployeeTable({ employees, onUpdateSalary }) {
 }
 ```
 
-#### 📄 [LeaveQueue.jsx](file:///Users/samarth/Downloads/React-Project/src/components/LeaveQueue.jsx)
+#### [LeaveQueue.jsx](file:///Users/samarth/Downloads/React-Project/src/components/LeaveQueue.jsx)
 ```javascript
 import React, { useState } from 'react';
 import { User, Clock, CheckCircle, XCircle } from 'lucide-react';
@@ -756,7 +756,7 @@ export default function LeaveQueue({ leaveRequests, employees, onSubmitRequest, 
 }
 ```
 
-#### 📄 [ReportingChain.jsx](file:///Users/samarth/Downloads/React-Project/src/components/ReportingChain.jsx)
+#### [ReportingChain.jsx](file:///Users/samarth/Downloads/React-Project/src/components/ReportingChain.jsx)
 ```javascript
 import React, { useState } from 'react';
 import { ArrowRight, Network } from 'lucide-react';
@@ -841,7 +841,7 @@ export default function ReportingChain({ employees }) {
 }
 ```
 
-#### 📄 [AvailabilityBoard.jsx](file:///Users/samarth/Downloads/React-Project/src/components/AvailabilityBoard.jsx)
+#### [AvailabilityBoard.jsx](file:///Users/samarth/Downloads/React-Project/src/components/AvailabilityBoard.jsx)
 ```javascript
 import React from 'react';
 import { ToggleLeft, User } from 'lucide-react';
@@ -907,7 +907,7 @@ export default function AvailabilityBoard({ employees, tasks }) {
 }
 ```
 
-#### 📄 [TaskAssignor.jsx](file:///Users/samarth/Downloads/React-Project/src/components/TaskAssignor.jsx)
+#### [TaskAssignor.jsx](file:///Users/samarth/Downloads/React-Project/src/components/TaskAssignor.jsx)
 ```javascript
 import React, { useState } from 'react';
 import { Plus, ListTodo, CheckSquare } from 'lucide-react';
@@ -1065,7 +1065,7 @@ export default function TaskAssignor({ employees, tasks, onAddTask, onCompleteTa
 }
 ```
 
-#### 📄 [OrgChart.jsx](file:///Users/samarth/Downloads/React-Project/src/components/OrgChart.jsx)
+#### [OrgChart.jsx](file:///Users/samarth/Downloads/React-Project/src/components/OrgChart.jsx)
 ```javascript
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
@@ -1163,7 +1163,7 @@ export default function OrgChart({ employees, onSelectEmployee }) {
 }
 ```
 
-#### 📄 [PermissionsHub.jsx](file:///Users/samarth/Downloads/React-Project/src/components/PermissionsHub.jsx)
+#### [PermissionsHub.jsx](file:///Users/samarth/Downloads/React-Project/src/components/PermissionsHub.jsx)
 ```javascript
 import React, { useState } from 'react';
 import { Shield, ShieldAlert, Plus, Trash } from 'lucide-react';
@@ -1290,7 +1290,7 @@ export default function PermissionsHub({ roles, onUpdateRoles }) {
 }
 ```
 
-#### 📄 [SalaryHistory.jsx](file:///Users/samarth/Downloads/React-Project/src/components/SalaryHistory.jsx)
+#### [SalaryHistory.jsx](file:///Users/samarth/Downloads/React-Project/src/components/SalaryHistory.jsx)
 ```javascript
 import React from 'react';
 import { RotateCcw, DollarSign, Calendar, User } from 'lucide-react';
@@ -1377,7 +1377,7 @@ export default function SalaryHistory({ salaryHistory, employees, onUndoChange }
 }
 ```
 
-#### 📄 [SearchBar.jsx](file:///Users/samarth/Downloads/React-Project/src/components/SearchBar.jsx)
+#### [SearchBar.jsx](file:///Users/samarth/Downloads/React-Project/src/components/SearchBar.jsx)
 ```javascript
 import React from 'react';
 import { Search } from 'lucide-react';
@@ -1398,7 +1398,7 @@ export default function SearchBar({ value, onChange, placeholder = "Search emplo
 }
 ```
 
-#### 📄 [TeamTenure.jsx](file:///Users/samarth/Downloads/React-Project/src/components/TeamTenure.jsx)
+#### [TeamTenure.jsx](file:///Users/samarth/Downloads/React-Project/src/components/TeamTenure.jsx)
 ```javascript
 import React from 'react';
 import { Award, Users, TrendingUp } from 'lucide-react';
@@ -1506,7 +1506,7 @@ export default function TeamTenure({ employees }) {
 
 ### 4. Page Views
 
-#### 📄 [Dashboard.jsx](file:///Users/samarth/Downloads/React-Project/src/pages/Dashboard.jsx)
+#### [Dashboard.jsx](file:///Users/samarth/Downloads/React-Project/src/pages/Dashboard.jsx)
 ```javascript
 import React from 'react';
 import { Users, Clock, ShieldAlert, Award, FileText, CheckCircle } from 'lucide-react';
@@ -1634,7 +1634,7 @@ export default function Dashboard({ employees, leaveRequests, tasks }) {
 }
 ```
 
-#### 📄 [Employees.jsx](file:///Users/samarth/Downloads/React-Project/src/pages/Employees.jsx)
+#### [Employees.jsx](file:///Users/samarth/Downloads/React-Project/src/pages/Employees.jsx)
 ```javascript
 import React, { useState, useEffect } from 'react';
 import SearchBar from '../components/SearchBar';
@@ -1724,7 +1724,7 @@ export default function Employees({ employees, onUpdateSalary }) {
 }
 ```
 
-#### 📄 [Leaves.jsx](file:///Users/samarth/Downloads/React-Project/src/pages/Leaves.jsx)
+#### [Leaves.jsx](file:///Users/samarth/Downloads/React-Project/src/pages/Leaves.jsx)
 ```javascript
 import React from 'react';
 import LeaveQueue from '../components/LeaveQueue';
@@ -1748,7 +1748,7 @@ export default function Leaves({ leaveRequests, employees, onSubmitRequest, onPr
 }
 ```
 
-#### 📄 [Settings.jsx](file:///Users/samarth/Downloads/React-Project/src/pages/Settings.jsx)
+#### [Settings.jsx](file:///Users/samarth/Downloads/React-Project/src/pages/Settings.jsx)
 ```javascript
 import React from 'react';
 import PermissionsHub from '../components/PermissionsHub';
@@ -1804,7 +1804,7 @@ export default function Settings({
 }
 ```
 
-#### 📄 [main.jsx](file:///Users/samarth/Downloads/React-Project/src/main.jsx)
+#### [main.jsx](file:///Users/samarth/Downloads/React-Project/src/main.jsx)
 ```javascript
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -1820,7 +1820,7 @@ createRoot(document.getElementById('root')).render(
 
 ---
 
-## 🎨 Theme & Design System Summary
+## Theme & Design System Summary
 
 The styling for the application is written entirely in Vanilla CSS within [index.css](file:///Users/samarth/Downloads/React-Project/src/index.css). 
 

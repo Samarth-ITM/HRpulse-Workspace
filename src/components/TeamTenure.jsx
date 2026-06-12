@@ -66,7 +66,7 @@ export default function TeamTenure({ employees }) {
               return (
                 <tr key={item.department} style={isTop ? { backgroundColor: 'rgba(16, 185, 129, 0.04)' } : {}}>
                   <td style={{ fontWeight: 700 }}>
-                    {isTop ? '🥇' : `#${index + 1}`}
+                    {isTop ? '#1' : `#${index + 1}`}
                   </td>
                   <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
                     {item.department}
