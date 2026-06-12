@@ -25,28 +25,52 @@ graph TD
     classDef controller fill:#311042,stroke:#d946ef,stroke-width:2px,color:#fff;
     classDef component fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#fff;
 
-    A[public/employees.csv] :::file -->|Fetch & Parse| F[useCsvData.js Hook]:::hook
-    B[public/leaveRequests.csv] :::file -->|Fetch & Parse| F
-    C[public/salaryHistory.csv] :::file -->|Fetch & Parse| F
-    D[public/roles.csv] :::file -->|Fetch & Parse| F
-    E[public/tasks.csv] :::file -->|Fetch & Parse| F
+    A[public/employees.csv]
+    B[public/leaveRequests.csv]
+    C[public/salaryHistory.csv]
+    D[public/roles.csv]
+    E[public/tasks.csv]
+    F[useCsvData.js Hook]
+    G[App.jsx Central Controller]
+    H[Dashboard Page]
+    I[Employees Directory]
+    J[Leave Queue Page]
+    K[Roles & Tasks Hub]
+    L[Reporting Chain Tracker]
+    M[Team Tenure Sorter]
+    N[Org Chart Tree]
+    O[Time-Off Requests Queue]
+    P[HR Task Dispatcher]
+    Q[HR Availability Board]
+    R[Salary History Undo]
 
-    F -->|Promise.all Atomicity| G[App.jsx Central Controller]:::controller
+    class A,B,C,D,E file;
+    class F hook;
+    class G controller;
+    class H,I,J,K,L,M,N,O,P,Q,R component;
 
-    G -->|State & Mutators| H[Dashboard Page]:::component
-    G -->|State & Mutators| I[Employees Directory]:::component
-    G -->|State & Mutators| J[Leave Queue Page]:::component
-    G -->|State & Mutators| K[Roles & Tasks Hub]:::component
+    A -->|Fetch & Parse| F
+    B -->|Fetch & Parse| F
+    C -->|Fetch & Parse| F
+    D -->|Fetch & Parse| F
+    E -->|Fetch & Parse| F
 
-    I -->|Set-based Cycle Tracker| L[Reporting Chain Tracker]:::component
-    I -->|Tenure Calculation| M[Team Tenure Sorter]:::component
-    I -->|Recursive Node Fallback| N[Org Chart Tree]:::component
+    F -->|Promise.all Atomicity| G
 
-    J -->|Strict FIFO + processedAt| O[Time-Off Requests Queue]:::component
+    G -->|State & Mutators| H
+    G -->|State & Mutators| I
+    G -->|State & Mutators| J
+    G -->|State & Mutators| K
 
-    K -->|Round-Robin Auto Assign| P[HR Task Dispatcher]:::component
-    K -->|Derived from active tasks| Q[HR Availability Board]:::component
-    K -->|LIFO Stack pops| R[Salary History Undo]:::component
+    I -->|Set-based Cycle Tracker| L
+    I -->|Tenure Calculation| M
+    I -->|Recursive Node Fallback| N
+
+    J -->|Strict FIFO + processedAt| O
+
+    K -->|Round-Robin Auto Assign| P
+    K -->|Derived from active tasks| Q
+    K -->|LIFO Stack pops| R
 ```
 
 ---
