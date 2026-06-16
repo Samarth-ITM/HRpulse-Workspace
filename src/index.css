@@ -6,34 +6,34 @@
   --font-display: 'Outfit', var(--font-sans);
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Theme Colors (Light Mode Default) */
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-sidebar: #ffffff;
-  --sidebar-text: #64748b;
-  --sidebar-active: #4f46e5;
-  --sidebar-active-bg: #f1f5f9;
-  --sidebar-border: #e2e8f0;
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --border-color: #e2e8f0;
-  --border-glow: rgba(79, 70, 229, 0.05);
-  --accent-primary: #4f46e5;
-  --accent-secondary: #6366f1;
-  --accent-glow: rgba(79, 70, 229, 0.06);
+  /* Theme Colors (Light Mode Default - Black & Gold Elegance) */
+  --bg-primary: #e5e5e5; /* Alabaster Grey */
+  --bg-secondary: #ffffff; /* White */
+  --bg-sidebar: #14213d; /* Prussian Blue */
+  --sidebar-text: #e5e5e5; /* Alabaster Grey */
+  --sidebar-active: #fca311; /* Gold / Orange */
+  --sidebar-active-bg: #1d2d4e;
+  --sidebar-border: #1c2b45;
+  --text-primary: #000000; /* Black */
+  --text-secondary: #14213d; /* Prussian Blue */
+  --text-muted: #5a6e85;
+  --border-color: #d4d4d4;
+  --border-glow: rgba(252, 163, 17, 0.05);
+  --accent-primary: #fca311; /* Gold / Orange */
+  --accent-secondary: #14213d;
+  --accent-glow: rgba(252, 163, 17, 0.08);
   --success: #10b981;
   --success-glow: #ecfdf5;
   --warning: #f59e0b;
   --warning-glow: #fffbeb;
   --danger: #ef4444;
   --danger-glow: #fef2f2;
-  --info: #0ea5e9;
+  --info: #14213d;
 
   /* Card Styles */
   --card-bg: var(--bg-secondary);
   --card-border: var(--border-color);
-  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
 
   /* Common Properties */
   --radius-sm: 6px;
@@ -45,31 +45,31 @@
 }
 
 :root[data-theme='dark'] {
-  /* Theme Colors (Dark Mode) */
-  --bg-primary: #090d16;
-  --bg-secondary: #111726;
-  --bg-sidebar: #0b0f19;
-  --sidebar-text: #94a3b8;
-  --sidebar-active: #818cf8;
-  --sidebar-active-bg: #1e293b;
-  --sidebar-border: #1e293b;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #64748b;
-  --border-color: #1e293b;
-  --border-glow: rgba(99, 102, 241, 0.1);
-  --accent-primary: #818cf8;
-  --accent-secondary: #6366f1;
-  --accent-glow: rgba(129, 140, 248, 0.15);
+  /* Theme Colors (Dark Mode - Black & Gold Elegance) */
+  --bg-primary: #000000; /* Black */
+  --bg-secondary: #14213d; /* Prussian Blue */
+  --bg-sidebar: #000000; /* Black */
+  --sidebar-text: #e5e5e5; /* Alabaster Grey */
+  --sidebar-active: #fca311; /* Gold / Orange */
+  --sidebar-active-bg: #14213d;
+  --sidebar-border: #14213d;
+  --text-primary: #ffffff; /* White */
+  --text-secondary: #e5e5e5; /* Alabaster Grey */
+  --text-muted: #8a9ab0;
+  --border-color: #1c2a45;
+  --border-glow: rgba(252, 163, 17, 0.12);
+  --accent-primary: #fca311; /* Gold / Orange */
+  --accent-secondary: #e5e5e5;
+  --accent-glow: rgba(252, 163, 17, 0.15);
   --success: #34d399;
-  --success-glow: rgba(52, 211, 153, 0.1);
+  --success-glow: rgba(52, 211, 153, 0.12);
   --warning: #fbbf24;
-  --warning-glow: rgba(251, 191, 36, 0.1);
+  --warning-glow: rgba(251, 191, 36, 0.12);
   --danger: #f87171;
-  --danger-glow: rgba(248, 113, 113, 0.1);
+  --danger-glow: rgba(248, 113, 113, 0.12);
   --info: #38bdf8;
   
-  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
 }
 
 /* Base Reset & Layout */
