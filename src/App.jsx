@@ -7,6 +7,8 @@ import Settings from './pages/Settings';
 import Salaries from './pages/Salaries';
 import OrgChart from './components/OrgChart';
 import { LayoutDashboard, Users, GitFork, Clock, ShieldCheck, Sun, Moon, DollarSign } from 'lucide-react';
+import logoImg from './assets/logo.png';
+
 
 
 
@@ -193,9 +195,10 @@ export default function App() {
       <aside className="sidebar">
         <div className="logo-container">
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div className="logo-icon">HP</div>
+            <img src={logoImg} alt="HRPulse Logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
             <span className="logo-text">HRPulse</span>
           </div>
+
           <button 
             onClick={toggleTheme} 
             className="theme-toggle-btn" 
