@@ -75,20 +75,22 @@ export default function OrgChart({ employees, onSelectEmployee }) {
 
   return (
     <div className="tree-container">
-      {roots.length === 0 ? (
-        <p className="text-muted">No organizational roots found.</p>
-      ) : (
-        roots.map(root => (
-          <div key={root.id} className="tree-root">
-            <TreeNode 
-              node={root} 
-              employees={employees} 
-              onSelect={onSelectEmployee} 
-              visited={new Set()}
-            />
-          </div>
-        ))
-      )}
+      <div className="tree-inner">
+        {roots.length === 0 ? (
+          <p className="text-muted">No organizational roots found.</p>
+        ) : (
+          roots.map(root => (
+            <div key={root.id} className="tree-root">
+              <TreeNode 
+                node={root} 
+                employees={employees} 
+                onSelect={onSelectEmployee} 
+                visited={new Set()}
+              />
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }

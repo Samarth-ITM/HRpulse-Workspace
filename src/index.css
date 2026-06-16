@@ -494,14 +494,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Org Chart Tree Viewer Styles */
 .tree-container {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  overflow-x: auto;
+  padding: 40px;
+  overflow: auto;
+  background-color: #f0e68c; /* Khaki background */
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  max-width: 100%;
+}
+
+.tree-inner {
+  display: inline-block;
+  min-width: 100%;
+  text-align: center;
 }
 
 .tree-root {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
 }
@@ -516,8 +524,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .tree-node-card {
   padding: 14px 20px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: #ffffff; /* White boxes */
+  border: 1px solid #d4d4d4;
   border-radius: var(--radius-md);
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   display: flex;
@@ -532,31 +540,32 @@ h1, h2, h3, h4, h5, h6 {
 
 .tree-node-card:hover {
   border-color: var(--accent-primary);
-  box-shadow: 0 4px 16px var(--accent-glow);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   transform: translateY(-2px);
 }
 
 .tree-node-card.selected {
   border-color: var(--accent-primary);
-  background-color: var(--accent-glow);
+  background-color: #f1f5f9;
 }
 
 .tree-node-name {
   font-weight: 600;
-  color: var(--text-primary);
+  color: #000000; /* Black names */
   font-size: 14px;
 }
 
 .tree-node-role {
   font-size: 12px;
-  color: var(--text-muted);
+  color: #ef4444; /* Red designation */
   margin-bottom: 4px;
+  font-weight: 600;
 }
 
 .tree-node-dept {
   font-size: 11px;
-  background-color: var(--accent-glow);
-  color: var(--accent-primary);
+  background-color: #f1f5f9;
+  color: #475569;
   padding: 2px 8px;
   border-radius: var(--radius-full);
 }
@@ -578,7 +587,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 2px;
   height: 24px;
-  background-color: var(--border-color);
+  background-color: #14213d; /* Dark line color */
 }
 
 .tree-node-wrapper::after {
@@ -589,7 +598,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(-50%);
   width: 2px;
   height: 10px;
-  background-color: var(--border-color);
+  background-color: #14213d; /* Dark line color */
 }
 
 .tree-node-children > .tree-node-wrapper::before {
@@ -599,7 +608,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--border-color);
+  background-color: #14213d; /* Dark line color */
 }
 
 .tree-node-children > .tree-node-wrapper:first-child::before {
