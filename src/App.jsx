@@ -143,12 +143,12 @@ export default function App() {
         return <Employees employees={employees} onUpdateSalary={handleUpdateSalary} />;
       case 'orgchart':
         return (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+          <div className="orgchart-page-container">
             <div>
               <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Company Structure Tree</h2>
               <p className="text-muted">Interactive reporting viewer. Collapse and expand nodes as needed.</p>
             </div>
-            <div className="card">
+            <div className="card orgchart-card">
               <OrgChart employees={employees} />
             </div>
           </div>

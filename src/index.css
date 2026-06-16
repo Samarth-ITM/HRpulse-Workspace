@@ -493,9 +493,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Org Chart Tree Viewer Styles */
+.orgchart-page-container {
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Lock the page scroll */
+  gap: 20px;
+}
+
+.orgchart-card {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent card itself from growing outside bounds */
+  min-height: 0;
+}
+
+.orgchart-card .tree-container {
+  flex-grow: 1;
+  overflow: auto; /* Keep scroll inside the tree! */
+}
+
 .tree-container {
   padding: 40px;
-  overflow: hidden; /* Locked, no scrolling allowed */
   background-color: #F4F1E6; /* Khaki background */
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
@@ -622,25 +642,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 12px;
 }
 
-/* Vertical line from parent card down to the horizontal children bar */
-.tree-node-children::before {
-  content: '';
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 24px; /* covers 12px padding-top + 12px margin-top */
-  background-color: #3f3a2e;
-}
-
 /* Horizontal connector bar above children wrappers */
 .tree-node-children > .tree-node-wrapper::before {
   content: '';
   position: absolute;
   top: -12px;
-  left: 0;
-  right: 0;
+  left: -12px; /* Extend left by half the gap (12px) to connect with neighbor */
+  right: -12px; /* Extend right by half the gap (12px) to connect with neighbor */
   height: 2px;
   background-color: #3f3a2e;
 }
