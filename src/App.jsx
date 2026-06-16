@@ -253,7 +253,7 @@ export default function App() {
         <div className="user-profile-bar">
           <div className="user-avatar">HR</div>
           <div className="user-info">
-            <h4>Sarah Jenkins</h4>
+            <h4>Samarth</h4>
             <p>HR Administrator</p>
           </div>
         </div>
