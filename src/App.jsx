@@ -4,8 +4,10 @@ import Dashboard from './pages/Dashboard';
 import Employees from './pages/Employees';
 import Leaves from './pages/Leaves';
 import Settings from './pages/Settings';
+import Salaries from './pages/Salaries';
 import OrgChart from './components/OrgChart';
-import { LayoutDashboard, Users, GitFork, Clock, ShieldCheck, Sun, Moon } from 'lucide-react';
+import { LayoutDashboard, Users, GitFork, Clock, ShieldCheck, Sun, Moon, DollarSign } from 'lucide-react';
+
 
 
 export default function App() {
@@ -164,15 +166,22 @@ export default function App() {
             employees={employees} 
             roles={roles} 
             tasks={tasks} 
-            salaryHistory={salaryHistory} 
             onUpdateRoles={setRoles} 
             onAddTask={handleAddTask} 
             onCompleteTask={handleCompleteTask} 
-            onUndoSalaryChange={handleUndoSalaryChange}
             taskNextIndex={taskNextIndex}
             setTaskNextIndex={setTaskNextIndex}
           />
         );
+      case 'salaries':
+        return (
+          <Salaries 
+            salaryHistory={salaryHistory} 
+            employees={employees} 
+            onUndoSalaryChange={handleUndoSalaryChange} 
+          />
+        );
+
       default:
         return <Dashboard employees={employees} leaveRequests={leaveRequests} tasks={tasks} />;
     }
@@ -223,11 +232,18 @@ export default function App() {
             <Clock /> Leave Queue
           </a>
           <a 
+            onClick={() => setCurrentPage('salaries')} 
+            className={`nav-item ${currentPage === 'salaries' ? 'active' : ''}`}
+          >
+            <DollarSign /> Salaries
+          </a>
+          <a 
             onClick={() => setCurrentPage('settings')} 
             className={`nav-item ${currentPage === 'settings' ? 'active' : ''}`}
           >
             <ShieldCheck /> Roles & Tasks
           </a>
+
         </nav>
 
         {/* User bar */}

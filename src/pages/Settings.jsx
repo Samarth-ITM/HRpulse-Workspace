@@ -1,17 +1,14 @@
 import React from 'react';
 import PermissionsHub from '../components/PermissionsHub';
 import TaskAssignor from '../components/TaskAssignor';
-import SalaryHistory from '../components/SalaryHistory';
 
 export default function Settings({ 
   employees, 
   roles, 
   tasks, 
-  salaryHistory, 
   onUpdateRoles, 
   onAddTask, 
   onCompleteTask, 
-  onUndoSalaryChange,
   taskNextIndex,
   setTaskNextIndex
 }) {
@@ -19,7 +16,7 @@ export default function Settings({
     <div style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
       <div>
         <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 8 }}>Roles & Tasks Hub</h2>
-        <p className="text-muted">Manage system access levels, log salary modifications, and assign HR duties.</p>
+        <p className="text-muted">Manage system access levels and assign HR duties.</p>
       </div>
 
       <TaskAssignor 
@@ -34,12 +31,6 @@ export default function Settings({
       <PermissionsHub 
         roles={roles} 
         onUpdateRoles={onUpdateRoles} 
-      />
-
-      <SalaryHistory 
-        salaryHistory={salaryHistory} 
-        employees={employees} 
-        onUndoChange={onUndoSalaryChange} 
       />
     </div>
   );
