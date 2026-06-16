@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Clock, ShieldAlert, Award, FileText, CheckCircle } from 'lucide-react';
+import AvailabilityBoard from '../components/AvailabilityBoard';
 
 export default function Dashboard({ employees, leaveRequests, tasks }) {
   const totalEmployees = employees.length;
@@ -36,7 +37,7 @@ export default function Dashboard({ employees, leaveRequests, tasks }) {
       <div className="stats-grid">
         <div className="card stat-card">
           <div className="stat-icon primary">
-            <Users size={24} />
+            <Users size={20} />
           </div>
           <div className="stat-info">
             <h3>{totalEmployees}</h3>
@@ -46,7 +47,7 @@ export default function Dashboard({ employees, leaveRequests, tasks }) {
 
         <div className="card stat-card">
           <div className="stat-icon warning">
-            <Clock size={24} />
+            <Clock size={20} />
           </div>
           <div className="stat-info">
             <h3>{pendingLeaves}</h3>
@@ -56,7 +57,7 @@ export default function Dashboard({ employees, leaveRequests, tasks }) {
 
         <div className="card stat-card">
           <div className="stat-icon danger">
-            <ShieldAlert size={24} />
+            <ShieldAlert size={20} />
           </div>
           <div className="stat-info">
             <h3>{activeTasks}</h3>
@@ -66,7 +67,7 @@ export default function Dashboard({ employees, leaveRequests, tasks }) {
 
         <div className="card stat-card">
           <div className="stat-icon success">
-            <Award size={24} />
+            <Award size={20} />
           </div>
           <div className="stat-info">
             <h3>{avgTenure} yrs</h3>
@@ -76,29 +77,7 @@ export default function Dashboard({ employees, leaveRequests, tasks }) {
       </div>
 
       <div className="split-pane">
-        <div className="card">
-          <h3 className="card-title">
-            <FileText size={18} className="text-primary" /> System Overview
-          </h3>
-          <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--text-secondary)' }}>
-            HRPulse is an internal company portal designed for HR professionals to manage the employee lifecycle. 
-            All core functionalities are driven by structural data parsed directly from CSV files.
-          </p>
-          <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13 }}>
-              <span className="badge success">CSV Loaded</span>
-              <span style={{ color: 'var(--text-muted)' }}>employees.csv loaded successfully</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13 }}>
-              <span className="badge success">CSV Loaded</span>
-              <span style={{ color: 'var(--text-muted)' }}>leaveRequests.csv loaded successfully</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13 }}>
-              <span className="badge success">CSV Loaded</span>
-              <span style={{ color: 'var(--text-muted)' }}>salaryHistory.csv loaded successfully</span>
-            </div>
-          </div>
-        </div>
+        <AvailabilityBoard employees={employees} tasks={tasks} />
 
         <div className="card">
           <h3 className="card-title">
@@ -118,6 +97,38 @@ export default function Dashboard({ employees, leaveRequests, tasks }) {
               System initialized using PapaParse.
             </li>
           </ul>
+        </div>
+      </div>
+
+      <div className="card">
+        <h3 className="card-title">
+          <FileText size={18} className="text-primary" /> System Overview
+        </h3>
+        <p style={{ fontSize: 14, lineHeight: 1.6, color: 'var(--text-secondary)' }}>
+          HRPulse is an internal company portal designed for HR professionals to manage the employee lifecycle. 
+          All core functionalities are driven by structural data parsed directly from CSV files.
+        </p>
+        <div style={{ marginTop: 16, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
+            <span className="badge success">CSV Loaded</span>
+            <span style={{ color: 'var(--text-muted)' }}>employees.csv</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
+            <span className="badge success">CSV Loaded</span>
+            <span style={{ color: 'var(--text-muted)' }}>leaveRequests.csv</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
+            <span className="badge success">CSV Loaded</span>
+            <span style={{ color: 'var(--text-muted)' }}>salaryHistory.csv</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
+            <span className="badge success">CSV Loaded</span>
+            <span style={{ color: 'var(--text-muted)' }}>roles.csv</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
+            <span className="badge success">CSV Loaded</span>
+            <span style={{ color: 'var(--text-muted)' }}>tasks.csv</span>
+          </div>
         </div>
       </div>
     </div>

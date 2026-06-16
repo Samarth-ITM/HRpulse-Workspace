@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCsvData } from './hooks/useCsvData';
 import Dashboard from './pages/Dashboard';
 import Employees from './pages/Employees';
 import Leaves from './pages/Leaves';
 import Settings from './pages/Settings';
 import OrgChart from './components/OrgChart';
-import { LayoutDashboard, Users, GitFork, Clock, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, Users, GitFork, Clock, ShieldCheck, Sun, Moon } from 'lucide-react';
+
 
 export default function App() {
   const {
@@ -26,6 +27,23 @@ export default function App() {
   
   // Non-persistent round-robin index
   const [taskNextIndex, setTaskNextIndex] = useState(0);
+
+  // Theme state
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    if (saved) return saved;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
+
 
   if (loading) {
     return (
@@ -165,9 +183,19 @@ export default function App() {
       {/* Sidebar Navigation */}
       <aside className="sidebar">
         <div className="logo-container">
-          <div className="logo-icon">HP</div>
-          <span className="logo-text">HRPulse</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div className="logo-icon">HP</div>
+            <span className="logo-text">HRPulse</span>
+          </div>
+          <button 
+            onClick={toggleTheme} 
+            className="theme-toggle-btn" 
+            aria-label="Toggle Theme"
+          >
+            {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+          </button>
         </div>
+
 
         <nav className="nav-menu">
           <a 

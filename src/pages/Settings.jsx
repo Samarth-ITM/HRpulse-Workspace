@@ -2,7 +2,6 @@ import React from 'react';
 import PermissionsHub from '../components/PermissionsHub';
 import TaskAssignor from '../components/TaskAssignor';
 import SalaryHistory from '../components/SalaryHistory';
-import AvailabilityBoard from '../components/AvailabilityBoard';
 
 export default function Settings({ 
   employees, 
@@ -30,11 +29,6 @@ export default function Settings({
         onCompleteTask={onCompleteTask} 
         taskNextIndex={taskNextIndex}
         setTaskNextIndex={setTaskNextIndex}
-      />
-
-      <AvailabilityBoard 
-        employees={employees} 
-        tasks={tasks}
       />
 
       <PermissionsHub 
