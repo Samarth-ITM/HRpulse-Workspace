@@ -260,7 +260,7 @@ export default function App() {
       </aside>
 
       {/* Main page layout */}
-      <main className="main-content">
+      <main className={`main-content ${currentPage === 'orgchart' ? 'no-scroll' : ''}`}>
         {renderPage()}
       </main>
     </div>
